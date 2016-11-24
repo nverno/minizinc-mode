@@ -41,7 +41,7 @@
 (require 'minizinc-completion)
 
 ;; default indentation level
-(defvar minizinc-mode-basic-offset 2)
+(defvar minizinc-basic-offset 2)
 
 ;;--- Font-Lock ------------------------------------------------------
 
@@ -108,7 +108,7 @@ Commands:\n
 \\{minizinc-mode-map}"
   (c-initialize-cc-mode)
   (c-common-init 'c-mode)
-  (setq-local c-basic-offset minizinc-mode-basic-offset)
+  (setq-local c-basic-offset minizinc-basic-offset)
   (c-set-offset 'knr-argdecl-intro 0)
   (setq-local comment-start "% ")
   (setq-local comment-end "")

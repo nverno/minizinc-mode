@@ -27,8 +27,8 @@
 ;;; Commentary:
 ;;; Code:
 (eval-when-compile
-  (require 'cl-lib)
-  (defvar company-keywords-alist))
+  (require 'cl-lib))
+(defvar company-keywords-alist)
 (require 'company nil t)
 
 (defvar minizinc-keywords

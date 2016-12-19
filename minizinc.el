@@ -43,8 +43,8 @@
 ;; default indentation level
 (defvar minizinc-basic-offset 2)
 
-;;--- Font-Lock ------------------------------------------------------
-
+;; -------------------------------------------------------------------
+;;; Font-lock
 (defvar minizinc-font-lock-keywords
   (eval-when-compile
     (let ((keywords '(
@@ -79,7 +79,8 @@
          (1 font-lock-function-name-face)
          (3 font-lock-variable-name-face))))))
 
-;;--- Syntax ---------------------------------------------------------
+;; -------------------------------------------------------------------
+;;; Syntax
 
 (defvar minizinc-mode-syntax-table
   (let ((st (make-syntax-table)))
@@ -93,7 +94,8 @@
     (modify-syntax-entry ?\' "\"" st)
     st))
 
-;;--- Major Mode -----------------------------------------------------
+;; -------------------------------------------------------------------
+;;; Major Mode
 
 (defvar minizinc-mode-map
   (let ((km (make-sparse-keymap)))
@@ -130,8 +132,8 @@ Commands:\n
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.mzn$" . minizinc-mode))
 
-;;--- Run ------------------------------------------------------------
-
+;; -------------------------------------------------------------------
+;;; Run
 (defvar minizinc-program "minizinc")
 (defvar minizinc-buffer "minizinc")
 (defvar minizinc-process-env
@@ -200,16 +202,17 @@ Commands:\n
         (setq minizinc--last-buffer (current-buffer))
         (pop-to-buffer buff)))))
 
-;;--- Compile --------------------------------------------------------
-
+;; -------------------------------------------------------------------
+;;; Compilation
 (require 'compile)
 (cl-pushnew 'minizinc-1 compilation-error-regexp-alist)
 (add-to-list 'compilation-error-regexp-alist-alist
              '(minizinc-1 "^\\s-*\\([^ \t\n]+\\.mzn\\):\\([0-9]+\\)"
                           1 2))
 
-;;--- Inferior Mode --------------------------------------------------
-
+;; -------------------------------------------------------------------
+;;; Inf
+;; wtf?
 (defvar inf-minizinc-mode-map
   (let ((km (make-sparse-keymap)))
     (define-key km (kbd "C-c C-z") 'minizinc-switch-buffer)

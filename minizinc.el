@@ -137,7 +137,9 @@ Commands:\n
 (defvar minizinc-program "minizinc")
 (defvar minizinc-buffer "minizinc")
 (defvar minizinc-process-env
-  '("MZN_STDLIB_DIR=/home/nverno/src/minizinc-2.1.0/share/minizinc/"))
+  `(,(concat "MZN_STDLIB_DIR="
+             (expand-file-name
+              "minizinc-2.1.0/share/minizinc/" (getenv "DEVEL")))))
 (defvar minizinc--last-buffer)
 
 ;; gather command line switches

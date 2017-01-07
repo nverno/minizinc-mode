@@ -58,6 +58,7 @@
     "sum" "tan" "tanh" "trace" "ub" "ub_array"
     ))
 
+(defvar company-keywords-alist ())
 (eval-after-load 'company
   '(unless (assoc 'minizinc-mode company-keywords-alist)
      (push `(minizinc-mode ,@minizinc-keywords)
